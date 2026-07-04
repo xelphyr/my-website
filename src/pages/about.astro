@@ -1,5 +1,6 @@
 ---
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const pageTitle = "About Me";
@@ -61,5 +62,6 @@ const skillColor = "pink";
             {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
         <Navigation />
+        <Footer />
     </body>
 </html>
