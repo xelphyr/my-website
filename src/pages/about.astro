@@ -1,7 +1,5 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 
 const pageTitle = "About Me";
 
@@ -26,42 +24,30 @@ const skills = ["Godot", "C++", "JS", "Rust?", "Astro"];
 const skillColor = "pink";
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <style define:vars={{ skillColor }}>
-            h1 {
-                color: purple;
-                font-size: 4rem;
-            }
-            .skill {
-                color: var(--skillColor);
-                font-weigt: bold;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>{pageTitle}</h1>
-        <p>
-            Hey there! I'm {altIdentity.name} ({altIdentity.pronouns}), and I'm
-            a {altIdentity.profession} learning Astro!
-        </p>
-        <p>
-            Two of my hobbies are <b>{altIdentity.hobbies[0]}</b> and <b
-                >{altIdentity.hobbies[1]}</b
-            >.
-        </p>
-        <h2>My Skills:</h2>
-        <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
-        <Navigation />
-        <Footer />
-    </body>
-</html>
+<Layout pageTitle={pageTitle}>
+    <p>
+        Hey there! I'm {altIdentity.name} ({altIdentity.pronouns}), and I'm a {
+            altIdentity.profession
+        } learning Astro!
+    </p>
+    <p>
+        Two of my hobbies are <b>{altIdentity.hobbies[0]}</b> and <b
+            >{altIdentity.hobbies[1]}</b
+        >.
+    </p>
+    <h2>My Skills:</h2>
+    <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    <style is:global define:vars={{ skillColor }}>
+        h1 {
+            color: purple;
+            font-size: 4rem;
+        }
+        .skill {
+            color: var(--skillColor);
+            font-weigt: bold;
+        }
+    </style>
+</Layout>
