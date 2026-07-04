@@ -1,3 +1,29 @@
+---
+import "../styles/global.css";
+
+const pageTitle = "About Me";
+
+const identity = {
+    name: "June",
+    country: "India",
+    pronouns: "she/they/it",
+    profession: "college student",
+    hobbies: ["guitar", "worldbuilding", "playing Minecraft"],
+};
+
+const altIdentity = {
+    name: "Joe",
+    country: "India",
+    pronouns: "he/they",
+    profession: "college student",
+    hobbies: ["guitar", "worldbuilding", "playing Minecraft"],
+};
+
+const skills = ["Godot", "C++", "JS", "Rust?", "Astro"];
+
+const skillColor = "pink";
+---
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,20 +32,32 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
-        <title>About</title>
+        <title>{pageTitle}</title>
+        <style define:vars={{ skillColor }}>
+            h1 {
+                color: purple;
+                font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weigt: bold;
+            }
+        </style>
     </head>
     <body>
-        <p>I'm relearning webdev rn so yeah!</p>
-        <p>I'm about to go to college too</p>
-        <a href="/">Back Home</a>
+        <h1>{pageTitle}</h1>
+        <p>
+            Hey there! I'm {altIdentity.name} ({altIdentity.pronouns}), and I'm
+            a {altIdentity.profession} learning Astro!
+        </p>
+        <p>
+            Two of my hobbies are <b>{altIdentity.hobbies[0]}</b> and <b
+                >{altIdentity.hobbies[1]}</b
+            >.
+        </p>
+        <h2>My Skills:</h2>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
     </body>
 </html>
-
-<style>
-    html,
-    body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
