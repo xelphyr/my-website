@@ -1,39 +1,28 @@
+@import "tailwindcss";
+
 html {
-    background-color: #202020;
-    font-family: sans-serif;
+    @apply bg-gray-900 text-gray-300 font-sans text-center;
 }
 
 body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
+    @apply m-0 w-screen p-4;
 }
 
 * {
-    box-sizing: border-box;
+    @apply box-border;
 }
 
 h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
+    @apply text-4xl;
 }
 
 /* nav styles */
 .menu {
-    background-color: #0d0950;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 5px 10px;
+    @apply bg-blue-900 text-blue-100 px-2 py-2 font-bold text-xl;
 }
 
 .nav-links {
-    width: 100%;
-    display: none;
-    margin: 0;
+    @apply w-fit hidden;
 }
 
 .nav-links a {
@@ -55,7 +44,7 @@ h1 {
 :has(.menu[aria-expanded="true"]) .nav-links {
     display: unset;
 }
-
+/*
 @media screen and (min-width: 636px) {
     .nav-links {
         margin-left: 5em;
@@ -74,3 +63,4 @@ h1 {
         display: none;
     }
 }
+*/
