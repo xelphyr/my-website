@@ -1,8 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import IndexLayout from "../layouts/IndexLayout.astro";
+import Navigation from "../components/Navigation.astro";
 const pageTitle = "Welcome!";
 ---
 
-<Layout pageTitle={pageTitle}>
-    <p>hi im cafeentity this is a refactoring thingy goinh on</p>
-</Layout>
+<IndexLayout pageTitle={pageTitle}>
+    <p class="px-1">hi, im</p>
+    <h1>cafeentity</h1>
+    <Navigation />
+</IndexLayout>
