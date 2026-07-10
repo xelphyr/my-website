@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 const pageTitle = "About Me";
 
@@ -24,7 +24,7 @@ const skills = ["Godot", "C++", "JS", "Rust?", "Astro"];
 const skillColor = "pink";
 ---
 
-<Layout pageTitle={pageTitle}>
+<PageLayout pageTitle={pageTitle}>
     <p>
         Hey there! I'm {altIdentity.name} ({altIdentity.pronouns}), and I'm a {
             altIdentity.profession
@@ -50,4 +50,4 @@ const skillColor = "pink";
             font-weigt: bold;
         }
     </style>
-</Layout>
+</PageLayout>
