@@ -1,0 +1,13 @@
+---
+const { path, title, author, pubDate, description } = Astro.props;
+---
+
+<a href={path} class="blog-item">
+    <h1>{title}</h1>
+    <h3>
+        <i>
+            {author}, {pubDate}
+        </i>
+    </h3>
+    <p>{description}</p>
+</a>

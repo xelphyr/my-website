@@ -1,0 +1,32 @@
+---
+import PageLayout from "../../../layouts/PageLayout.astro";
+import BlogList from "../../../components/BlogList.astro";
+export async function getStaticPaths() {
+    const allPosts = Object.values(
+        import.meta.glob("../*.md", { eager: true }),
+    );
+
+    const uniqueTags = [
+        ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
+    ];
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post: any) =>
+            post.frontmatter.tags.includes(tag),
+        );
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+const pageTitle = tag;
+---
+
+<PageLayout pageTitle={pageTitle}>
+    <BlogList blogFiles={posts} />
+</PageLayout>

@@ -1,0 +1,12 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import BlogList from "../../components/BlogList.astro";
+const pageTitle = "Blog";
+
+const allPosts = Object.values(import.meta.glob("./*.md", { eager: true }));
+---
+
+<PageLayout pageTitle={pageTitle}>
+    <h1>blog goes here yep</h1>
+    <BlogList blogFiles={allPosts} />
+</PageLayout>

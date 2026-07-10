@@ -1,0 +1,19 @@
+---
+import BlogItem from "./BlogItem.astro";
+
+const { blogFiles } = Astro.props;
+---
+
+<div class="blog-list">
+    {
+        blogFiles?.map((post: any) => (
+          <BlogItem
+              path={post.url}
+              title={post.frontmatter.title},
+              author={post.frontmatter.author},
+              pubDate = {post.frontmatter.pubDate},
+              description={post.frontmatter.description}
+          />
+        ))
+    }
+</div>
